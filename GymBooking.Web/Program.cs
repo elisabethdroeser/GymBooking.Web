@@ -1,4 +1,5 @@
 using GymBooking.Web.Data;
+using GymBooking.Web.Models.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true) //kräver att vi har validerat vår e-mail -true-. Sätter upp en massa defaults, registrera services åt oss (x) cookie authentication. Default Identity UI. User/Provide authentication mm.
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false) //kräver att vi har validerat vår e-mail -true-. Sätter upp en massa defaults, registrera services åt oss (x) cookie authentication. Default Identity UI. User/Provide authentication mm.
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
