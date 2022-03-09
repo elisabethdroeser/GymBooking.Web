@@ -14,16 +14,16 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     {
-        options.SignIn.RequireConfirmedAccount = false; //kräver att vi har validerat vår e-mail -true-. Sätter upp en massa defaults, registrera services åt oss (x) cookie authentication. Default Identity UI. User/Provide authentication mm.
-        options.Password.RequireDigit = false;
-        options.Password.RequiredLength = 3;
-        options.Password.RequireNonAlphanumeric = false; //över 8 tecken, stora o små bokstäver
-        options.Password.RequireUppercase = false; //AAA, 000. Vid testningar. 
+        options.SignIn.RequireConfirmedAccount = false; //krï¿½ver att vi har validerat vï¿½r e-mail -true-. Sï¿½tter upp en massa defaults, registrera services ï¿½t oss (x) cookie authentication. Default Identity UI. User/Provide authentication mm.
+        //options.Password.RequireDigit = false;
+        //options.Password.RequiredLength = 3;
+        //options.Password.RequireNonAlphanumeric = false; //ï¿½ver 8 tecken, stora o smï¿½ bokstï¿½ver
+        //options.Password.RequireUppercase = false; //AAA, 000. Vid testningar. 
     }) 
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddControllersWithViews(); //lägga till filters
+builder.Services.AddControllersWithViews(); //lï¿½gga till filters
 
 var app = builder.Build();
 
