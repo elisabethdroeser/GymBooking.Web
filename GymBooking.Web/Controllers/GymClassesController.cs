@@ -23,9 +23,6 @@ namespace GymBooking.Web.Controllers
             var g = httpClientFactory.CreateClient();
             gymClient = httpClientFactory.CreateClient("GymClient");
             var gymClient2 = httpClientFactory.CreateClient("GymClient2");
-
-            //var gymClient = httpClientFactory.CreateClient("GymClient"); //kan inte återanvända detta
-            //var gymClient2 = httpClientFactory.CreateClient("GymClient2");
             db = context;
             this.bookingClient = bookingClient;
         }
@@ -33,7 +30,6 @@ namespace GymBooking.Web.Controllers
         // GET: GymClasses
         public async Task<IActionResult> Index()
         {
-            var x = await bookingClient.GetWithStreamsAsync();
             return View(await db.GymClass.ToListAsync());
         }
 
