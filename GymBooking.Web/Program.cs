@@ -1,3 +1,4 @@
+using GymBooking.Web.Clients;
 using GymBooking.Web.Data;
 using GymBooking.Web.Models.Entities;
 using Microsoft.AspNetCore.Identity;
@@ -27,7 +28,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 builder.Services.AddControllersWithViews(); //l�gga till filters
 
 //1
-builder.Services.AddHttpClient(); //injecta en http client
+builder.Services.AddHttpClient(); //injecta en http client. Även skriva nameclient mm. 
 
 //2
 builder.Services.AddHttpClient("GymClient", client =>
@@ -48,6 +49,8 @@ builder.Services.AddHttpClient("GymClient2", client =>
 //{
 //    client.BaseAddress = new Uri("https://localhost:5001");
 //});
+
+builder.Services.AddHttpClient<BookingClient>( );
 
 var app = builder.Build();
 
