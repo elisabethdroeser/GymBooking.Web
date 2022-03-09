@@ -15,10 +15,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
     {
         options.SignIn.RequireConfirmedAccount = false; //kr�ver att vi har validerat v�r e-mail -true-. S�tter upp en massa defaults, registrera services �t oss (x) cookie authentication. Default Identity UI. User/Provide authentication mm.
-        //options.Password.RequireDigit = false;
-        //options.Password.RequiredLength = 3;
-        //options.Password.RequireNonAlphanumeric = false; //�ver 8 tecken, stora o sm� bokst�ver
-        //options.Password.RequireUppercase = false; //AAA, 000. Vid testningar. 
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 3;
+        options.Password.RequireNonAlphanumeric = false; //�ver 8 tecken, stora o sm� bokst�ver
+        options.Password.RequireUppercase = false; //AAA, 000. Vid testningar. 
     }) 
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
