@@ -39,6 +39,7 @@ namespace GymBooking.Web.Controllers
             return View(await db.GymClass.ToListAsync());
         }
 
+        [Authorize]
         public async Task<IActionResult> BookingToggle(int? id)
         {
             if (id == null) return BadRequest();
@@ -67,8 +68,8 @@ namespace GymBooking.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        //[Authorize]
         // GET: GymClasses/Details/5
+//        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

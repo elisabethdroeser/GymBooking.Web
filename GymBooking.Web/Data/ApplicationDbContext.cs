@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace GymBooking.Web.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
@@ -14,8 +13,8 @@ namespace GymBooking.Web.Data
         }
 
         public DbSet<GymClass> GymClass { get; set; }
-
         public DbSet<ApplicationUserGymClass> AppUserGymClass { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
