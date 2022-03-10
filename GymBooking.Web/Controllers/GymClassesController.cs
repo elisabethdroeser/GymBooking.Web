@@ -56,21 +56,16 @@ namespace GymBooking.Web.Controllers
                 };
 
                 db.Add(booking);
-                TempData["Message"] = 
+                TempData["Message"] = $"You are booked on {db.GymClass.Find(id).Name} class"; 
                 //db.AppUserGymClass.Add(booking);   
+
             } else
             {
                 db.Remove(attending);
+                TempData["Warning"] = "The class in now unbooked";
             }
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
-            /*
-            var currentGymClass = await db.GymClass.Include(g => g.AttendingMembers)
-                .FirstOrDefaultAsync(a => a.Id == id); //gympassets id 
-            //är jag bokad på passet eller inte
-
-            var attending = currentGymClass?.AttendingMembers
-                .FirstOrDefault(a => a.ApplicationUserId == userId);*/
         }
 
 
