@@ -9,6 +9,6 @@ public class GymClass
     public DateTime EndTime => StartTime + Duration; 
     public string Description { get; set; }
 
-    public ICollection<ApplicationUserGymClass> AttendingMembers { get; set; }
+    public ICollection<ApplicationUserGymClass> AttendingMembers { get; set; } = new List<ApplicationUserGymClass>();
 
 }

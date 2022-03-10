@@ -10,6 +10,7 @@ namespace GymBooking.Web.Models.Entities
 
         public string FullName => @"{FirstName} {LastName}";
         public DateTime TimeOfRegistration { get; set; }
-        public ICollection<ApplicationUserGymClass> AttendingClasses { get; set; } //kopplingstabell
+        public ICollection<ApplicationUserGymClass> AttendingClasses { get; set; } = new List<ApplicationUserGymClass>();
+        //kopplingstabell
     }
 }

@@ -54,6 +54,14 @@ builder.Services.AddHttpClient<BookingClient>( );
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var db = services.GetRequiredService<ApplicationDbContext>();
+
+    //db
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
