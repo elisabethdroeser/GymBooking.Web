@@ -10,6 +10,7 @@ using GymBooking.Web.Data;
 using GymBooking.Web.Models.Entities;
 using GymBooking.Web.Clients;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace GymBooking.Web.Controllers
 {
@@ -56,19 +57,17 @@ namespace GymBooking.Web.Controllers
                 };
 
                 db.Add(booking);
-                TempData["Message"] = $"You are booked on {db.GymClass.Find(id).Name} class"; 
                 //db.AppUserGymClass.Add(booking);   
 
             } else
             {
                 db.Remove(attending);
-                TempData["Warning"] = "The class in now unbooked";
             }
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
-
+        //[Authorize]
         // GET: GymClasses/Details/5
         public async Task<IActionResult> Details(int? id)
         {
