@@ -14,12 +14,13 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace GymBooking.Web.Controllers
 {
+    [Authorize]
     public class GymClassesController : Controller
     {
         private readonly ApplicationDbContext db;
-        private readonly BookingClient bookingClient;
+        //private readonly BookingClient bookingClient;
         private readonly UserManager<ApplicationUser> userManager;
-        private HttpClient gymClient;
+        //private HttpClient gymClient;
 
         //public GymClassesController(ApplicationDbContext context, IHttpClientFactory httpClientFactory, BookingClient bookingClient)
         public GymClassesController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
@@ -33,13 +34,14 @@ namespace GymBooking.Web.Controllers
             //this.bookingClient = bookingClient;
         }
 
+        
         // GET: GymClasses
         public async Task<IActionResult> Index()
         {
             return View(await db.GymClass.ToListAsync());
         }
 
-        [Authorize]
+        [AllowAnonymous]
         public async Task<IActionResult> BookingToggle(int? id)
         {
             if (id == null) return BadRequest();
