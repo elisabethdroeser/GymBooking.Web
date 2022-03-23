@@ -6,9 +6,9 @@ namespace GymBooking.Web.Clients
 {
     public class BookingClient : BaseClient
     {
-        public BookingClient(HttpClient httpClient) : base(httpClient, new Uri(""), "application/json")
+        public BookingClient(HttpClient httpClient) : base(httpClient, new Uri("https://"), "application/json")
         { 
-        
+            
         }
     }
 }
